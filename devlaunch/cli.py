@@ -1,5 +1,7 @@
 import typer
 import os
+import shutil
+from pathlib import Path
 
 app = typer.Typer()
 
@@ -10,13 +12,25 @@ def main():
 
 @app.command()
 def create(template_name: str, project_name: str):
-    print("Creating project...")
-    print(f"Template: {template_name}")
-    print(f"Project Name: {project_name}")
+    # Normalize template name (python-api → python_api)
+    template_dir_name = template_name.replace("-", "_")
 
-    if os.path.exists(project_name):
+    # Get paths
+    base_dir = Path(__file__).resolve().parent.parent
+    template_path = base_dir / "templates" / template_dir_name
+    project_path = base_dir / project_name
+
+    # Check if template exists
+    if not template_path.exists():
+        print(f"Template '{template_name}' not found.")
+        return
+
+    # Check if project already exists
+    if project_path.exists():
         print("Folder already exists")
         return
-    else:
-        os.mkdir(project_name)
-    
+
+    # Copy template → project folder
+    shutil.copytree(template_path, project_path)
+
+    print(f"Project '{project_name}' created using '{template_name}' template.")

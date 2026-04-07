@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devlaunch"
+version = "0.1.0"
+dependencies = ["typer"]
+
+[project.scripts]
+devlaunch = "devlaunch.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["devlaunch"]
