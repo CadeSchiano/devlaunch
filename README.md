@@ -1,5 +1,10 @@
 # DevLaunch
 
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![CLI](https://img.shields.io/badge/type-CLI-orange)
+![Status](https://img.shields.io/badge/status-active-success)
+
 **Generate starter projects instantly from your terminal.**
 
 DevLaunch is a simple CLI tool that lets you create clean, ready-to-run project templates in seconds.
