@@ -1,0 +1,3 @@
+SETTINGS = {
+    "env": "development"
+}

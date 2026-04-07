@@ -4,3 +4,5 @@ __pycache__/
 .DS_Store
 devlaunch.egg-info/
 my_project/
+my_cli/
+my_script/
